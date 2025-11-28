@@ -7,34 +7,18 @@ def ask_text(message):
             print("Input cannot be empty. Please try again.")
 
 def ask_number(message, min_value=None, max_value=None):
-    while True:
-        try:
-            value = int(input(message))
-        except ValueError:
-            print("Please enter a valid integer.")
-            continue
-        if min_value is not None and value < min_value:
-            print(f"Please enter a number >= {min_value}.")
-            continue
-        if max_value is not None and value > max_value:
-            print(f"Please enter a number <= {max_value}.")
-            continue
-        return value
-    
-
-
-    
-    
-    
     courage_lv = int(input(message))
     while courage_lv < min_value or courage_lv > max_value:
         print(f"Please enter a number between {min_value} and {max_value}.")
         courage_lv = int(input(message))
     return courage_lv
 
-    
+def ask_choice(message, option):
+    print(message)
+    for i, option in enumerate(option, start=1):
+        print(f"{i}. {option}")
 
-if __name__ == "__main__":
-    # demo / manual test only — won't run on import
-    lvl = ask_number("Enter courage level (1-10): ", 1, 10)
-    print(f"Courage level set to {lvl}")
+    choice = ask_number("Your choice: ", 1, len(option))
+    return option[choice - 1]
+
+ask_choice("dotou want to continue?", ["yes", "no"])
