@@ -1,3 +1,5 @@
+import json
+
 def ask_text(message):
     while True:
         user_input = input(message).strip()
