@@ -1,3 +1,4 @@
+import difflib
 from utils.input_utils import load_file
 
 
