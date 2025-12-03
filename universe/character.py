@@ -28,7 +28,7 @@ def modify_money(character, amount):
     character["Money"] += amount
     return character["Money"]
     
-def add_item(character, item):
+def add_item(character, key, item):
     # avoid duplicates
     if item in character["Inventory"] or item in character["Spells"]:
         return False
@@ -37,14 +37,14 @@ def add_item(character, item):
     if isinstance(catalog, list):
         for entry in catalog:
             if entry.get("name") == item:
-                if entry.get("type", "inventory").lower() == "spell":
+                if key.lower() == "spell":
                     character["Spells"].append(item)
                 else:
                     character["Inventory"].append(item)
                 return True
             
     names = [e.get("name", "") for e in catalog]
-    suggestions = difflib.get_close_matches(item, names, n=3, cutoff=0.6)
+    suggestions = difflib.get_close_matches(item, names, n=3, cutoff=0.5)
     if suggestions:
-        return f"Item not found. Did you mean: {', '.join(suggestions)}?"
+        return f"Item not found. Did you mean: {', '.join(suggestions)}?" # Error 404
     return "Item not found. Check spelling."
