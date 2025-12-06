@@ -9,12 +9,7 @@ def init_character(last_name, first_name, attributes):
         "Money": 100,
         "Inventory": [],
         "Spells": [],
-        "Attributes": {
-            "Courage": 8,
-            "Ambition": 8,
-            "Loyalty": 8,
-            "Intelligence": 8
-        }
+        "Attributes": attributes
     }
     return character
 
