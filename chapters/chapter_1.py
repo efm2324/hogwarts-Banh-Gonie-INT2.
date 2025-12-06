@@ -33,3 +33,5 @@ def receive_letter():
     else:
         print("You have declined the invitation to Hogwarts. The adventure ends here.")
         exit(0)
+
+def meet_hagrid():
