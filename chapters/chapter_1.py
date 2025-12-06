@@ -21,4 +21,15 @@ def create_character():
     character = init_character(last_name, first_name, attributes)
     display_character(character)
     return character
-    
+
+def receive_letter():
+    print(
+    "An owl flies through the window, delivering a letter sealed with the Hogwarts crest... \n“Dear Student, \nWe are pleased to inform you that you have been accepted to Hogwarts School of Witchcraft and Wizardry!” \nDo you accept this invitation and go to Hogwarts?"
+    )
+    answer = int(input("1. Yes, of course! \n2. No, I'd rather stay with Uncle Vernon... ").strip())
+    print("Your choice : ", answer)
+    if answer == 1:
+        print("You have accepted the invitation to Hogwarts!")
+    else:
+        print("You have declined the invitation to Hogwarts. The adventure ends here.")
+        exit(0)
